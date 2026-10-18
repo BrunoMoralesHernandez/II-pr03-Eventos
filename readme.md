@@ -50,3 +50,16 @@ Las esferas, por su parte, actúan como **oyentes (*Subscribers*)** mediante el 
 ![Demostración Ejercicio 1](docs/gifs/ejercicio-01.gif)
 
 ---
+
+### Ejercicio 2: Sustitución de primitivas por modelos humanoides
+
+Para este ejercicio cambiamos las esferas básicas por modelos 3D de humanoides, manteniendo exactamente la misma lógica de eventos que ya teníamos montada. El objetivo principal es ver cómo una arquitectura desacoplada nos permite cambiar la parte visual por completo sin tener que reescribir el comportamiento. A cada uno de estos nuevos personajes se le ajusta un `BoxCollider` a su cuerpo para delimitar su volumen y se le vuelve a asignar el script del suscriptor.
+
+El funcionamiento en escena es el mismo que en el ejercicio anterior: cuando el cubo choca contra el cilindro, se lanza el evento y los personajes reaccionan. Los humanoides de tipo 1 (rojos) empiezan a caminar hacia el humanoide de tipo 2 (verde) que tenemos fijado como referencia, y los de tipo 2 (verdes) se desplazan directos hacia el cilindro. Al estar todo separado mediante delegados, no hizo falta tocar la lógica de comunicación para adaptarla a los nuevos modelos.
+
+* **Componentes y conceptos clave:**
+  * **Adaptación de geometrías:** Sustitución de primitivas por modelos tridimensionales ajustando sus colisionadores (`BoxCollider`) al volumen del cuerpo.
+  * **Reutilización y desacoplamiento:** Mantenimiento de la arquitectura de eventos y delegados de C# sin cambios en el código lógico, validando la independencia entre vista/modelo y lógica.
+  * **Traslación y orientación:** Desplazamiento reactivo de los avatares hacia sus objetivos fijados mediante `Vector3.MoveTowards`.
+
+![Demostración Ejercicio 2](docs/gifs/ejercicio-02.gif)
