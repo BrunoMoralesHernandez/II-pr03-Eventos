@@ -79,3 +79,18 @@ La lógica de respuesta está cruzada entre ambos bandos. Los humanoides del gru
   * **Comprobación geométrica y respuesta visual:** Verificación de solapamiento de mallas/colisionadores en `Update` y cambio dinámico de color en el `Renderer` (amarillo para el grupo 1 y violeta para el grupo 2) al alcanzar el escudo.
 
 ![Demostración Ejercicio 3](docs/gifs/ejercicio-03.gif)
+
+---
+
+### Ejercicio 4: Detección por proximidad, teletransporte y orientación
+
+En este ejercicio cambiamos la forma de activar el evento: en lugar de esperar a un choque físico directo, la interacción se dispara por proximidad geométrica. Para ello, el cilindro actúa como objeto de referencia y emisor a través del script `NotificadorReferencia`. En su método `Update`, calcula en cada frame la distancia euclídea que lo separa del cubo con `Vector3.Distance`; en cuanto el jugador cruza el umbral establecido (`distanciaActivacion`), se lanza el evento `onProximidadDetectada`.
+
+A partir de esta única señal, volvemos a aplicar el patrón Observer para obtener respuestas totalmente distintas según el tipo de humanoide. Los del grupo 1 tienen asociado `SuscriptorTPGrupo1`, de modo que al activarse el evento se teletransportan al instante igualando su posición a la del escudo objetivo (`transform.position = objetivo.transform.position`). Por su parte, los del grupo 2 utilizan `SuscriptorOrientaGrupo2` y no se desplazan, sino que reaccionan rotando su orientación hacia un objeto de la escena mediante `transform.LookAt`.
+
+* **Componentes y conceptos clave:**
+  * **Activación por proximidad:** Cálculo continuo de distancia euclídea (`Vector3.Distance`) en `Update` como alternativa matemática a los colisionadores de tipo Trigger.
+  * **Patrón Observer con respuestas heterogéneas:** Un mismo evento dispara lógicas independientes según la entidad suscrita (traslación instantánea vs reorientación espacial).
+  * **Manipulación de `Transform`:** Modificación directa de coordenadas para el teletransporte y empleo de `transform.LookAt` para enfocar el frente del modelo hacia el objetivo.
+
+![Demostración Ejercicio 4](docs/gifs/ejercicio-04.gif)

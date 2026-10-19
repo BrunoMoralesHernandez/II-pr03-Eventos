@@ -536,7 +536,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8277960620957513260}
   - component: {fileID: 1617502875539765367}
-  - component: {fileID: 7271309480846213781}
   - component: {fileID: 2523784048676042735}
   m_Layer: 7
   m_Name: FreeLichTipo2
@@ -584,21 +583,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7271309480846213781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763402888994477901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1917607caaf7104cbea6d041473229c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SuscriptorEsfera
-  notificador: {fileID: 0}
-  objetivo: {fileID: 0}
-  velocidad: 5
 --- !u!65 &2523784048676042735
 BoxCollider:
   m_ObjectHideFlags: 0
