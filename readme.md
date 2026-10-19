@@ -155,3 +155,18 @@ Se integró al jugador con su control de movimiento y recolección junto a la in
   * **Validación de mecánicas conjuntas:** Comprobación de que la recolección de puntos, actualización de UI y colisiones físicas conviven de forma estable en una misma escena.
 
 ![Demostración Ejercicio 8](docs/gifs/ejercicio-08.gif)
+
+---
+
+### Ejercicio 9: Implementación física del cubo con Rigidbody
+
+En este ejercicio adaptamos la escena del Ejercicio 3 para que el cubo pase a ser formalmente un objeto físico dentro del motor de Unity. Para lograrlo, el cubo cuenta con un componente `Rigidbody` dinámico y su desplazamiento se traslada al método `FixedUpdate`, utilizando `rb.MovePosition` para que el movimiento esté sincronizado con el bucle de físicas (`Time.fixedDeltaTime`). 
+
+A diferencia de modificar directamente `transform.position` (que simplemente teletransporta la malla y puede provocar atravesamientos si el objeto se mueve con rapidez), el uso de `Rigidbody` junto con `MovePosition` realiza un barrido continuo del volumen del colisionador en el espacio. De esta forma, el cubo no solo dispara los eventos de colisión con los humanoides al tocarlos, sino que respeta los bloqueos del escenario, interactúa de forma sólida con los escudos físicos y transmite empujes e inercias reales durante los choques.
+
+* **Componentes y conceptos clave:**
+  * **Cuerpo rígido dinámico:** Incorporación de `Rigidbody` con `isKinematic = false` para someter al jugador a las leyes del motor de físicas (PhysX).
+  * **Movimiento físico continuo:** Uso de `rb.MovePosition()` en `FixedUpdate` con `Time.fixedDeltaTime`, garantizando detección continua de colisiones (*sweep test*) sin teletransportes.
+  * **Interacción física completa:** Resolución sólida de impactos frente a obstáculos, humanoides y escudos respetando masas y colisionadores.
+
+![Demostración Ejercicio 9](docs/gifs/ejercicio-09.gif)
