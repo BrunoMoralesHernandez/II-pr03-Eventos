@@ -38,12 +38,12 @@ public class NotificadorJugador : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Se discrimina la puntuación en función del tipo de escudo impactado
-        if (collision.gameObject.name.Contains("Tipo1"))
+        if (collision.gameObject.name.Contains("EscudoTipo1"))
         {
             SumarPuntos(5);
             Destroy(collision.gameObject);
         }   
-        else if (collision.gameObject.name.Contains("Tipo2"))
+        else if (collision.gameObject.name.Contains("EscudoTipo2"))
         {
             SumarPuntos(10);
             Destroy(collision.gameObject);

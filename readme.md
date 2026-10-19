@@ -140,3 +140,18 @@ La lógica se gestiona mediante un umbral dinámico representado por la variable
   * **Modularidad del código:** Separación de responsabilidades en funciones auxiliares (`SumarPuntos`, `ActualizarMarcador`, `ComprobarRecompensa`) para mantener un flujo limpio dentro del callback `OnCollisionEnter`.
 
 ![Demostración Ejercicio 7](docs/gifs/ejercicio-07.gif)
+
+---
+
+### Ejercicio 8: Integración de mecánicas en la escena del prototipo
+
+En este ejercicio el objetivo fue trasladar y combinar las mecánicas desarrolladas a lo largo de la práctica dentro del entorno visual y espacial del prototipo del proyecto. Al haber construido los scripts anteriores de forma modular y desacoplada mediante eventos y componentes físicos, no fue necesario escribir nuevo código: bastó con instanciar y configurar en la nueva escena los elementos interactivos ya creados.
+
+Se integró al jugador con su control de movimiento y recolección junto a la interfaz gráfica (`Canvas`), distribuyendo por el escenario los escudos recolectables (`Tipo1` y `Tipo2`) junto a los humanoides. Al mover al personaje por el prototipo, este puede desplazarse respetando la geometría del nivel, interactuar con los objetos para acumular puntos en el HUD y desencadenar las respuestas visuales y físicas programadas previamente, validando la reusabilidad directa de los componentes en una escena de juego más elaborada.
+
+* **Componentes y conceptos clave:**
+  * **Composición y modularidad:** Reutilización directa de los scripts de movimiento, colisiones, HUD y recolección sin necesidad de modificar el código fuente.
+  * **Integración en entorno de prototipo:** Adaptación del `Canvas` y los elementos dinámicos a la escala y distribución espacial del escenario.
+  * **Validación de mecánicas conjuntas:** Comprobación de que la recolección de puntos, actualización de UI y colisiones físicas conviven de forma estable en una misma escena.
+
+![Demostración Ejercicio 8](docs/gifs/ejercicio-08.gif)
