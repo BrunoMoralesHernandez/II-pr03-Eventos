@@ -63,3 +63,19 @@ El funcionamiento en escena es el mismo que en el ejercicio anterior: cuando el 
   * **Traslación y orientación:** Desplazamiento reactivo de los avatares hacia sus objetivos fijados mediante `Vector3.MoveTowards`.
 
 ![Demostración Ejercicio 2](docs/gifs/ejercicio-02.gif)
+
+---
+
+### Ejercicio 3: Notificación selectiva entre grupos y colisión con escudos
+
+En este ejercicio ampliamos la mecánica basada en el patrón Observer para gestionar dos grupos de entidades independientes: humanoides del tipo 1 (Footman) y del tipo 2 (FreeLich), junto con dos tipos de escudos en la escena. Ahora el emisor del evento pasa a ser el propio Cubo mediante el script `NotificadorCubo`. Cuando el cubo se desplaza con las teclas y colisiona físicamente contra un personaje, discrimina a qué grupo pertenece en `OnCollisionEnter` revisando el nombre del objeto (`Footman` o `FreeLich`) y lanza el evento correspondiente: `onCuboChocaGrupo1` o `onCuboChocaGrupo2`.
+
+La lógica de respuesta está cruzada entre ambos bandos. Los humanoides del grupo 1 (Footman) se suscriben al evento que avisa cuando el cubo impacta a un rival del grupo 2; al recibirlo, inician su desplazamiento hacia el escudo de tipo 1 seleccionado. Por su parte, los del grupo 2 (FreeLich) escuchan el choque contra el grupo 1 y avanzan hacia los escudos del grupo 2. Además, durante el desplazamiento en `Update`, cada humanoide comprueba frame a frame si su volumen o malla entra en contacto con la del escudo objetivo (evaluando la intersección de sus colisionadores). En cuanto se detecta dicho contacto, se modifica el material del modelo a través de su `Renderer`: los del grupo 1 cambian su color a **amarillo**, mientras que los del grupo 2 pasan a color **violeta**.
+
+* **Componentes y conceptos clave:**
+  * **Eventos diferenciados:** Declaración de múltiples eventos (`onCuboChocaGrupo1` y `onCuboChocaGrupo2`) para coordinar respuestas cruzadas e independientes entre ambos grupos.
+  * **Discriminación en colisión:** Filtrado en `OnCollisionEnter` mediante comprobación de subcadenas en los nombres de las instancias para saber qué delegado invocar.
+  * **Físicas y control del jugador:** Desplazamiento cinemático con `rb.position` en `FixedUpdate` para interactuar de forma sólida con los personajes.
+  * **Comprobación geométrica y respuesta visual:** Verificación de solapamiento de mallas/colisionadores en `Update` y cambio dinámico de color en el `Renderer` (amarillo para el grupo 1 y violeta para el grupo 2) al alcanzar el escudo.
+
+![Demostración Ejercicio 3](docs/gifs/ejercicio-03.gif)

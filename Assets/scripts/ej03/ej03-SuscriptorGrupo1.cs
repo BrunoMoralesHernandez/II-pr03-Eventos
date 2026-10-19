@@ -8,7 +8,8 @@
  *
  * @author Bruno Morales Hernandez alu0101664309@ull.edu.es
  * @brief Controla a los humanoides del Grupo 1 (Footman). Se activa cuando el cubo 
- *        colisiona con un humanoide del Grupo 2, desplazándose hacia el escudo objetivo.
+ *        colisiona con un humanoide del Grupo 2, desplazándose hacia el escudo objetivo
+ *        y cambiando el color.
  * @date Oct 19 2026
  * @version 1.0
  */
@@ -41,19 +42,15 @@ public class SuscriptorGrupo1 : MonoBehaviour
                 objetivo.transform.position,
                 velocidad * Time.deltaTime
             );
+            if (GetComponent<Collider>().bounds.Intersects(objetivo.GetComponent<Collider>().bounds)) 
+            {
+                GetComponentInChildren<Renderer>().material.color = Color.yellow;    
+            }
         }
     }
 
     void ActivarMovimiento()
     {
         huboColision = true;
-    }
-
-    private void OnDestroy()
-    {
-        if (notificador != null)
-        {
-            notificador.onCuboChocaGrupo2 -= ActivarMovimiento;
-        }
     }
 }

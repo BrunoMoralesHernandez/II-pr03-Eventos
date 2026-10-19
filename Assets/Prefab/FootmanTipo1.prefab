@@ -388,7 +388,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3160147790286232494}
   - component: {fileID: 6888517414225384091}
-  - component: {fileID: 3177982991147035383}
   m_Layer: 6
   m_Name: FootmanMesh
   m_TagString: Untagged
@@ -494,21 +493,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -104.858246, y: 9.7334175, z: 2.0182877}
     m_Extent: {x: 157.07443, y: 77.538284, z: 119.81869}
   m_DirtyAABB: 0
---- !u!114 &3177982991147035383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4124585941876930687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1917607caaf7104cbea6d041473229c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SuscriptorEsfera
-  notificador: {fileID: 0}
-  objetivo: {fileID: 0}
-  velocidad: 5
 --- !u!1 &4719173759338116857
 GameObject:
   m_ObjectHideFlags: 0
