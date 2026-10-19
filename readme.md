@@ -125,3 +125,18 @@ Al arrancar la escena, el método `Start` llama a `ActualizarMarcador()` para in
   * **Centralización de la recolección:** Detección de colisión, cálculo de puntos, refresco del marcador y destrucción del coleccionable unificados en un único flujo de ejecución dentro de `OnCollisionEnter`.
 
 ![Demostración Ejercicio 6](docs/gifs/ejercicio-06.gif)
+
+---
+
+### Ejercicio 7: Sistema de recompensas progresivas en la UI
+
+Sobre la base del sistema de interfaz anterior, en este ejercicio se añade una mecánica de progresión que premia al jugador cada vez que alcanza un hito de puntuación. Para implementarlo, el script `NotificadorJugador` incorpora un segundo elemento de texto `TMP_Text` denominado `textoRecompensa`, el cual se inicializa vacío en `Start` para no saturar la pantalla.
+
+La lógica se gestiona mediante un umbral dinámico representado por la variable `proximaRecompensa`, fijada inicialmente en 100 puntos. Cada vez que el cubo recolecta un escudo y suma puntuación (5 puntos para `Tipo1` o 10 puntos para `Tipo2`), la función auxiliar `SumarPuntos` actualiza el marcador y llama a `ComprobarRecompensa()`. Si la puntuación iguala o supera el umbral, se actualiza el texto en la interfaz notificando el desbloqueo del logro y se incrementa la meta sumando otros 100 puntos (`proximaRecompensa += 100`), permitiendo que el sistema premie de forma continua los 200, 300 y sucesivos múltiplos.
+
+* **Componentes y conceptos clave:**
+  * **Gestión dinámica del HUD:** Incorporación de múltiples elementos `TextMeshPro` coordinados para informar tanto del estado continuo (puntos) como de eventos discretos (recompensas).
+  * **Umbrales escalonados:** Mecánica de metas acumulativas mediante incremento del valor objetivo sin requerir reinicios de puntuación ni estructuras complejas.
+  * **Modularidad del código:** Separación de responsabilidades en funciones auxiliares (`SumarPuntos`, `ActualizarMarcador`, `ComprobarRecompensa`) para mantener un flujo limpio dentro del callback `OnCollisionEnter`.
+
+![Demostración Ejercicio 7](docs/gifs/ejercicio-07.gif)
