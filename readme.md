@@ -110,3 +110,18 @@ Por un lado, el jugador lleva el script `JugadorRecolector`, que mantiene una va
   * **Depuración:** Registro en tiempo real del progreso acumulativo mediante `Debug.Log`.
 
 ![Demostración Ejercicio 5](docs/gifs/ejercicio-05.gif)
+
+---
+
+### Ejercicio 6: Interfaz gráfica de puntuación con Canvas y TextMeshPro
+
+En este ejercicio sustituimos la salida por consola del ejercicio anterior por una interfaz de usuario (HUD) integrada en la pantalla mediante un `Canvas`. Para ello se crea el script `JugadorRecolectorUI`, el cual centraliza tanto la recolección y destrucción de los escudos como la actualización visual del marcador en tiempo real empleando la librería `TMPro` (`TextMeshPro`).
+
+Al arrancar la escena, el método `Start` llama a `ActualizarMarcador()` para inicializar el texto en pantalla con la puntuación a cero (`"Puntos: 0"`). Durante la partida, cada vez que el cubo colisiona con un escudo, `OnCollisionEnter` discrimina si se trata de un escudo `Tipo1` (+5 puntos) o `Tipo2` (+10 puntos), suma los puntos correspondientes, refresca el componente `TMP_Text` asignado en el Inspector y procede a destruir el escudo recogido (`Destroy(collision.gameObject)`), ofreciendo una respuesta visual inmediata al jugador.
+
+* **Componentes y conceptos clave:**
+  * **Sistema de UI de Unity:** Uso de `Canvas` como contenedor de la interfaz y elementos `TextMeshPro - Text` (`TMP_Text`) para una representación nítida del texto en pantalla.
+  * **Sincronización del estado de juego:** Actualización inmediata de la vista (UI) en el mismo instante en que se modifica la lógica de puntuación.
+  * **Centralización de la recolección:** Detección de colisión, cálculo de puntos, refresco del marcador y destrucción del coleccionable unificados en un único flujo de ejecución dentro de `OnCollisionEnter`.
+
+![Demostración Ejercicio 6](docs/gifs/ejercicio-06.gif)
