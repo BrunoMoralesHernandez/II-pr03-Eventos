@@ -18,18 +18,50 @@ El propósito principal de esta práctica es profundizar en la integración del 
 ```text
 .
 ├── Assets/
+│   ├── Materiales/
+│   ├── Mini Legion Footman PBR HP Polyart/
+│   ├── Mini Legion Lich PBR HP Polyart/
+│   ├── Prefab/
 │   ├── Scenes/
-│   │   └── SampleScene.unity      
-│   ├── Scripts/                   
-│   │   ├── NotificadorCilindro.cs
-│   │   └── SuscriptorEsfera.cs
-│   └── Settings/                  
+│   │   ├── Ejercicio1.unity
+│   │   ├── Ejercicio2.unity
+│   │   ├── Ejercicio3.unity
+│   │   ├── Ejercicio4.unity
+│   │   ├── Ejercicio5.unity
+│   │   ├── Ejercicio6.unity
+│   │   ├── Ejercicio7.unity
+│   │   ├── Ejercicio8.unity
+│   │   └── Ejercicio9.unity
+│   ├── scripts/
+│   │   ├── ej01/
+│   │   │   ├── ej01-cilindro.cs
+│   │   │   └── ej01-esfera.cs
+│   │   ├── ej03/
+│   │   │   ├── ej03-MoverCubo.cs
+│   │   │   ├── ej03-NotificadorCubo.cs
+│   │   │   ├── ej03-SuscriptorGrupo1.cs
+│   │   │   └── ej03-SuscriptorGrupo2.cs
+│   │   ├── ej04/
+│   │   │   ├── ej04-NotificadorReferencia.cs
+│   │   │   ├── ej04-SuscriptorGrupo1.cs
+│   │   │   └── ej04-SuscriptorGrupo2.cs
+│   │   ├── ej05/
+│   │   │   ├── ej05-EscudoPuntuacion.cs
+│   │   │   └── ej05-JugadorRecolector.cs
+│   │   ├── ej06/
+│   │   │   └── ej06-JugadorRecolectorUI.cs
+│   │   ├── ej07/
+│   │   │   └── ej07-JugadorRecompensa.cs
+│   │   └── ej09/
+│   │       └── ej09-MoverCuboFisico.cs
+│   ├── Settings/
+│   ├── TextMesh Pro/
+│   └── TutorialInfo/
 ├── docs/
-│   └── gifs/                      
-│       └── ejercicio-01.gif
-├── Packages/                      
-├── ProjectSettings/               
-└── README.md                      
+│   └── gifs/
+├── Packages/
+├── ProjectSettings/
+└── README.md                 
 ```
 
 ---
