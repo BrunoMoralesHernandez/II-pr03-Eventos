@@ -94,3 +94,19 @@ A partir de esta única señal, volvemos a aplicar el patrón Observer para obte
   * **Manipulación de `Transform`:** Modificación directa de coordenadas para el teletransporte y empleo de `transform.LookAt` para enfocar el frente del modelo hacia el objetivo.
 
 ![Demostración Ejercicio 4](docs/gifs/ejercicio-04.gif)
+
+---
+
+### Ejercicio 5: Mecánica de recolección y acumulación de puntuación
+
+En este ejercicio se implementa un sistema básico de recolección de objetos (escudos) y conteo de puntos utilizando detección de colisiones físicas. El comportamiento se reparte entre dos scripts independientes asociados a cada entidad: el jugador (cubo) y los escudos presentes en la escena.
+
+Por un lado, el jugador lleva el script `JugadorRecolector`, que mantiene una variable entera interna `puntuacion`. Cada vez que el cubo choca contra un objeto, su método `OnCollisionEnter` evalúa el nombre de la entidad colisionante: si corresponde a un escudo `Tipo1` suma 5 puntos, y si es de `Tipo2` suma 10 puntos, mostrando inmediatamente el total actualizado por la consola de Unity mediante `Debug.Log`. Por otro lado, cada escudo cuenta con el script `EscudoPuntuacion`, el cual detecta en su propio `OnCollisionEnter` el choque con el objeto denominado `"jugador"` y ejecuta `Destroy(gameObject)` para eliminarse de la escena y simular que ha sido recogido.
+
+* **Componentes y conceptos clave:**
+  * **Detección física bidireccional:** Empleo de `OnCollisionEnter` en ambos extremos para separar la lógica de puntuación (en el jugador) del ciclo de vida del objeto (en el escudo).
+  * **Filtrado por nomenclatura:** Uso de `name.Contains()` para discriminar el tipo de ítem impactado y asignar la puntuación correspondiente de forma directa.
+  * **Ciclo de vida y destrucción:** Llamada a `Destroy(gameObject)` para retirar las instancias de la jerarquía de la escena tras el contacto.
+  * **Depuración:** Registro en tiempo real del progreso acumulativo mediante `Debug.Log`.
+
+![Demostración Ejercicio 5](docs/gifs/ejercicio-05.gif)
